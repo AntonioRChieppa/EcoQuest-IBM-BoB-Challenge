@@ -35,7 +35,7 @@ L'intera logica applicativa fa affidamento su due funzioni AI principali:
 
 ### 🎮 Il Sistema RPG (Livelli, XP e Gradi)
 EcoQuest implementa un vero e proprio sistema di progressione composto da 15 livelli massimi.
-*   **Assegnazione Punti:** Le missioni giornaliere garantiscono un premio fisso di 100 XP. Le missioni settimanali, più complesse, premiano l'utente con 300 XP[.
+*   **Assegnazione Punti:** Le missioni giornaliere garantiscono un premio fisso di 100 XP. Le missioni settimanali, più complesse, premiano l'utente con 300 XP.
 *   **Level-Up:** Per salire di livello, l'utente deve accumulare 500 XP nel livello corrente. In caso di passaggio di livello, l'eventuale "overflow" di XP viene conservato per il livello successivo. Gli XP totali non si resettano mai e alimentano unicamente il Forziere (Loot Chest).
 *   **Avanzamento di Rango:** Raggiungendo livelli specifici (Milestone), la Classe RPG dell'utente si evolve:
     *   Livello 1: Recluta Inquinante
