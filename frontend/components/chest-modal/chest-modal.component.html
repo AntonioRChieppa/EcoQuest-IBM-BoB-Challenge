@@ -1,0 +1,26 @@
+<div class="modal-backdrop" ng-if="$ctrl.isOpen">
+  <div class="modal">
+
+    <button class="modal__close" ng-click="$ctrl.close()">×</button>
+    <div class="modal__title">🎁 Il Tuo Bottino</div>
+
+    <div class="modal__loading" ng-if="$ctrl.loading">
+      Calcolo in corso…
+    </div>
+
+    <div ng-if="!$ctrl.loading && $ctrl.chest">
+      <div class="modal__stat">
+        <span>💶 Euro Risparmiati</span>
+        <span>€ {{ $ctrl.chest.euro_saved | number:2 }}</span>
+      </div>
+      <div class="modal__stat">
+        <span>🌿 CO₂ Evitata</span>
+        <span>{{ $ctrl.chest.co2_saved_kg | number:2 }} kg</span>
+      </div>
+      <div class="modal__comparison">
+        {{ $ctrl.chest.pop_comparison }}
+      </div>
+    </div>
+
+  </div>
+</div>

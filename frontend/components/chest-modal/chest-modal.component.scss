@@ -1,0 +1,75 @@
+// ============================================================
+// Chest Modal Component Styles
+// ============================================================
+@use '../../styles/variables' as *;
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 32px;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: $color-gold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid $color-border;
+    font-size: 0.95rem;
+
+    &:last-of-type { border-bottom: none; }
+
+    span:first-child { color: $color-muted; }
+    span:last-child  { font-weight: 700; color: $color-text; }
+  }
+
+  &__comparison {
+    margin-top: 16px;
+    padding: 14px;
+    background: $color-bg;
+    border-radius: $radius;
+    color: $color-green;
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: $color-muted;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover { color: $color-text; }
+  }
+
+  &__loading {
+    text-align: center;
+    color: $color-muted;
+    padding: 20px 0;
+  }
+}

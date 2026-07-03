@@ -1,0 +1,77 @@
+// ============================================================
+// Login Component Styles
+// ============================================================
+@use '../../styles/variables' as *;
+
+.login-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  &__inner {
+    width: 100%;
+    max-width: 420px;
+    padding: 0 16px;
+  }
+
+  &__logo {
+    text-align: center;
+    margin-bottom: 32px;
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: $color-green;
+      letter-spacing: 0.04em;
+    }
+    p {
+      color: $color-muted;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+  }
+
+  &__error {
+    margin-top: 10px;
+    text-align: center;
+    color: $color-red;
+    font-size: 0.82rem;
+  }
+}
+
+// ── Auth Tabs ────────────────────────────────────────────────
+.auth-tabs {
+  display: flex;
+  margin-bottom: 0;
+  border-radius: $radius-lg $radius-lg 0 0;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  border-bottom: none;
+
+  &__tab {
+    flex: 1;
+    padding: 12px;
+    background: $color-bg;
+    border: none;
+    color: $color-muted;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover { background: $color-surface; color: $color-text; }
+
+    &--active {
+      background: $color-surface;
+      color: $color-green;
+      border-bottom: 2px solid $color-green;
+    }
+  }
+}
+
+// Card con tabs sopra: rimuovi border-radius superiore
+.auth-tabs + .card {
+  border-radius: 0 0 $radius-lg $radius-lg;
+  border-top: none;
+}

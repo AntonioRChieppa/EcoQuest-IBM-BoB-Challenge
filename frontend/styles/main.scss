@@ -1,0 +1,12 @@
+// ============================================================
+// Eco-Quest — Main Sass Entry Point
+// Imports global tokens + every component stylesheet
+// ============================================================
+
+@use 'variables' as *;
+
+@use '../components/login/login.component'         as *;
+@use '../components/hud/hud.component'             as *;
+@use '../components/dashboard/dashboard.component' as *;
+@use '../components/quest-card/quest-card.component' as *;
+@use '../components/chest-modal/chest-modal.component' as *;

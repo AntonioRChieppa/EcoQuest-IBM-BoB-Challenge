@@ -1,0 +1,133 @@
+// ============================================================
+// Eco-Quest — Design Tokens (Dark Mode)
+// ============================================================
+
+// Colors
+$color-bg:       #0d1117;
+$color-surface:  #161b22;
+$color-border:   #30363d;
+$color-green:    #3fb950;
+$color-gold:     #d29922;
+$color-blue:     #58a6ff;
+$color-red:      #f85149;
+$color-text:     #e6edf3;
+$color-muted:    #8b949e;
+
+// Typography
+$font-main: 'Segoe UI', system-ui, sans-serif;
+
+// Spacing & Radius
+$radius:    8px;
+$radius-lg: 14px;
+
+// ============================================================
+// Reset & Base
+// ============================================================
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-main;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: $color-blue; text-decoration: none; }
+
+// ============================================================
+// Utilities
+// ============================================================
+.text-gold  { color: $color-gold; }
+.text-green { color: $color-green; }
+.text-muted { color: $color-muted; }
+.mt-12      { margin-top: 12px; }
+.mt-20      { margin-top: 20px; }
+.flex-gap   { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-muted;
+  margin-bottom: 16px;
+}
+
+// ============================================================
+// Shared: Card
+// ============================================================
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+// ============================================================
+// Shared: Button
+// ============================================================
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: $radius;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+
+  &:hover  { opacity: 0.85; }
+  &:active { transform: scale(0.97); }
+
+  &--primary { background: $color-green; color: #0d1117; }
+  &--gold    { background: $color-gold;  color: #0d1117; }
+  &--blue    { background: $color-blue;  color: #0d1117; }
+  &--danger  { background: $color-red;   color: #fff; }
+  &--ghost   { background: transparent; border: 1px solid $color-border; color: $color-text; }
+
+  &:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+}
+
+// ============================================================
+// Shared: Form
+// ============================================================
+.form-group {
+  margin-bottom: 18px;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    color: $color-muted;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px 14px;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    color: $color-text;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus { border-color: $color-blue; }
+  }
+}
+
+// ============================================================
+// Layout
+// ============================================================
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}

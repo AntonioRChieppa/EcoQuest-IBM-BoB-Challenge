@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it" ng-app="ecoQuestApp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco-Quest 🌱</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body ng-controller="AppController">
+
+  <!-- VIEW: Login -->
+  <eq-login
+    ng-if="view === 'login'"
+    on-login="handleLogin(user)">
+  </eq-login>
+
+  <!-- VIEW: Dashboard -->
+  <eq-dashboard
+    ng-if="view === 'dashboard'"
+    user="user"
+    on-logout="handleLogout()">
+  </eq-dashboard>
+
+  <!-- AngularJS 1.x -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+
+  <!-- App root -->
+  <script src="/app.js"></script>
+
+  <!-- Components (order: leaf → composite) -->
+  <script src="/components/login/login.component.js"></script>
+  <script src="/components/hud/hud.component.js"></script>
+  <script src="/components/quest-card/quest-card.component.js"></script>
+  <script src="/components/chest-modal/chest-modal.component.js"></script>
+  <script src="/components/dashboard/dashboard.component.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "eco-quest-frontend",
+  "version": "1.0.0",
+  "description": "Eco-Quest – Agenda 2030 RPG – Frontend (AngularJS + Sass)",
+  "private": true,
+  "scripts": {
+    "build:css": "sass styles/main.scss dist/style.css --style=compressed",
+    "build:css:dev": "sass styles/main.scss dist/style.css --style=expanded --source-map",
+    "watch:css": "sass styles/main.scss dist/style.css --watch --style=expanded",
+    "build": "npm run build:css && node scripts/copy-assets.js",
+    "start": "npm run build && http-server dist -p 4200 -c-1 --cors -o"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "sass": "^1.69.5"
+  }
+}

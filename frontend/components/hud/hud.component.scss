@@ -1,0 +1,91 @@
+// ============================================================
+// HUD Component Styles
+// ============================================================
+@use '../../styles/variables' as *;
+
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+
+  &__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-green;
+  }
+
+  &__class {
+    font-size: 0.85rem;
+    color: $color-gold;
+    font-style: italic;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__level {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: $color-gold;
+  }
+
+  &__xp {
+    font-size: 0.9rem;
+    color: $color-muted;
+
+    span { color: $color-blue; font-weight: 600; }
+  }
+
+  &__xp-total {
+    display: block;
+    font-size: 0.75rem;
+    color: $color-muted;
+    opacity: 0.6;
+  }
+
+  &__max-badge {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #0d1117;
+    background: $color-gold;
+    border-radius: 4px;
+    padding: 1px 7px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+}
+
+.xp-bar {
+  width: 160px;
+  height: 8px;
+  background: $color-border;
+  border-radius: 99px;
+  overflow: hidden;
+
+  &__fill {
+    height: 100%;
+    background: linear-gradient(90deg, $color-green, $color-blue);
+    border-radius: 99px;
+    transition: width 0.5s ease;
+  }
+
+  // At MAX_LEVEL: full bar with gold gradient
+  &--max &__fill {
+    background: linear-gradient(90deg, $color-gold, #f0c040);
+    box-shadow: 0 0 6px rgba($color-gold, 0.6);
+  }
+}

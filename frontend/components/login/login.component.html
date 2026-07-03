@@ -1,0 +1,106 @@
+<div class="login-view">
+  <div class="login-view__inner">
+
+    <div class="login-view__logo">
+      <h1>🌍 Eco-Quest</h1>
+      <p>Agenda 2030 · Goals 7 &amp; 13 · RPG Edition</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tabs__tab"
+              ng-class="{ 'auth-tabs__tab--active': $ctrl.tab === 'login' }"
+              ng-click="$ctrl.switchTab('login')">
+        Accedi
+      </button>
+      <button class="auth-tabs__tab"
+              ng-class="{ 'auth-tabs__tab--active': $ctrl.tab === 'register' }"
+              ng-click="$ctrl.switchTab('register')">
+        Registrati
+      </button>
+    </div>
+
+    <div class="card">
+
+      <!-- ── LOGIN FORM ── -->
+      <form ng-if="$ctrl.tab === 'login'" ng-submit="$ctrl.login()">
+
+        <div class="form-group">
+          <label for="l-username">Username</label>
+          <input id="l-username"
+                 type="text"
+                 ng-model="$ctrl.loginForm.username"
+                 placeholder="Il tuo username"
+                 required autocomplete="username" />
+        </div>
+
+        <div class="form-group">
+          <label for="l-password">Password</label>
+          <input id="l-password"
+                 type="password"
+                 ng-model="$ctrl.loginForm.password"
+                 placeholder="La tua password"
+                 required autocomplete="current-password" />
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width:100%"
+                ng-disabled="$ctrl.loading">
+          {{ $ctrl.loading ? 'Accesso in corso…' : '⚔️  Accedi' }}
+        </button>
+
+      </form>
+
+      <!-- ── REGISTER FORM ── -->
+      <form ng-if="$ctrl.tab === 'register'" ng-submit="$ctrl.register()">
+
+        <div class="form-group">
+          <label for="r-username">Username</label>
+          <input id="r-username"
+                 type="text"
+                 ng-model="$ctrl.registerForm.username"
+                 placeholder="Scegli un username"
+                 required autocomplete="username" />
+        </div>
+
+        <div class="form-group">
+          <label for="r-password">Password</label>
+          <input id="r-password"
+                 type="password"
+                 ng-model="$ctrl.registerForm.password"
+                 placeholder="Min. 6 caratteri"
+                 minlength="6"
+                 required autocomplete="new-password" />
+        </div>
+
+        <div class="form-group">
+          <label for="r-age">Età</label>
+          <input id="r-age"
+                 type="number"
+                 ng-model="$ctrl.registerForm.age"
+                 placeholder="La tua età"
+                 min="1" max="120"
+                 required />
+        </div>
+
+        <div class="form-group">
+          <label for="r-gender">Genere</label>
+          <select id="r-gender" ng-model="$ctrl.registerForm.gender" required>
+            <option value="">— Seleziona —</option>
+            <option value="M">Maschile</option>
+            <option value="F">Femminile</option>
+            <option value="NB">Non-Binario</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width:100%"
+                ng-disabled="$ctrl.loading">
+          {{ $ctrl.loading ? 'Registrazione…' : '🌱  Crea Account' }}
+        </button>
+
+      </form>
+
+      <p class="login-view__error" ng-show="$ctrl.error">{{ $ctrl.error }}</p>
+
+    </div>
+  </div>
+</div>

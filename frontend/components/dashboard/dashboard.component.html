@@ -1,0 +1,103 @@
+<div class="dashboard">
+
+  <!-- ══════════════════════════════════════════════════════
+       LEVEL-UP OVERLAY — centrato a schermo, auto-dismiss
+       ══════════════════════════════════════════════════════ -->
+  <div class="levelup-overlay" ng-if="$ctrl.leveledUp || $ctrl.rankedUp">
+    <div class="levelup-overlay__box"
+         ng-class="{ 'levelup-overlay__box--rank': $ctrl.rankedUp }">
+
+      <!-- RANK UP (milestone) -->
+      <div ng-if="$ctrl.rankedUp">
+        <div class="levelup-overlay__icon">🏆</div>
+        <div class="levelup-overlay__headline">NUOVO GRADO!</div>
+        <div class="levelup-overlay__level">Livello {{ $ctrl.user.level }}</div>
+        <div class="levelup-overlay__class">{{ $ctrl.user.rpg_class }}</div>
+        <div class="levelup-overlay__note">Hai raggiunto una nuova classe RPG!</div>
+      </div>
+
+      <!-- LEVEL UP (non-milestone) -->
+      <div ng-if="$ctrl.leveledUp && !$ctrl.rankedUp">
+        <div class="levelup-overlay__icon">⬆️</div>
+        <div class="levelup-overlay__headline">LEVEL UP!</div>
+        <div class="levelup-overlay__level">Livello {{ $ctrl.user.level }}</div>
+        <div class="levelup-overlay__class">{{ $ctrl.user.rpg_class }}</div>
+      </div>
+
+      <button class="btn btn--ghost levelup-overlay__close"
+              ng-click="$ctrl.dismissAlert()">
+        Continua →
+      </button>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <eq-hud
+    user="$ctrl.user"
+    on-open-chest="$ctrl.openChest()">
+  </eq-hud>
+
+  <!-- Quest Board -->
+  <div class="card">
+    <div class="quest-board-header">
+      <span class="section-title">⚔️  Quest Board</span>
+      <div class="generate-ctrl">
+        <button class="btn btn--blue"
+                ng-click="$ctrl.generateQuests()"
+                ng-disabled="$ctrl.loadingQuests || $ctrl.generatesLeft <= 0">
+          🎲 Genera
+          <span class="generate-ctrl__badge"
+                ng-class="{ 'generate-ctrl__badge--empty': $ctrl.generatesLeft <= 0 }">
+            {{ $ctrl.generatesLeft }} rimast{{ $ctrl.generatesLeft === 1 ? 'a' : 'e' }}
+          </span>
+        </button>
+        <span class="generate-ctrl__clicks" ng-if="$ctrl.generateClicks > 0"
+              title="Volte che hai generato nuove quest">
+          🔄 {{ $ctrl.generateClicks }}
+        </span>
+        <button class="btn btn--ghost" ng-click="$ctrl.logout()">🚪 Esci</button>
+      </div>
+    </div>
+
+    <div class="dashboard__empty"
+         ng-if="$ctrl.quests.length === 0 && !$ctrl.loadingQuests">
+      Nessuna quest attiva. Generane di nuove!
+    </div>
+    <div class="dashboard__loading" ng-if="$ctrl.loadingQuests">
+      Generazione quest in corso…
+    </div>
+
+    <!-- DAILY SECTION -->
+    <div ng-if="$ctrl.activeByType('daily').length > 0">
+      <div class="quest-section-title">
+        ☀️ Daily Quest <span class="quest-section-xp">100 XP cad.</span>
+      </div>
+      <eq-quest-card
+        ng-repeat="q in $ctrl.activeByType('daily') track by q.id"
+        quest="q"
+        on-claim="$ctrl.claimQuest(quest)">
+      </eq-quest-card>
+    </div>
+
+    <!-- WEEKLY SECTION -->
+    <div ng-if="$ctrl.activeByType('weekly').length > 0" class="mt-20">
+      <div class="quest-section-title">
+        📅 Weekly Quest <span class="quest-section-xp">300 XP cad.</span>
+      </div>
+      <eq-quest-card
+        ng-repeat="q in $ctrl.activeByType('weekly') track by q.id"
+        quest="q"
+        on-claim="$ctrl.claimQuest(quest)">
+      </eq-quest-card>
+    </div>
+
+  </div>
+
+  <!-- Loot Chest Modal -->
+  <eq-chest-modal
+    is-open="$ctrl.chestOpen"
+    user-id="$ctrl.user.id"
+    on-close="$ctrl.closeChest()">
+  </eq-chest-modal>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="quest-card"
+     ng-class="{ 'quest-card--completed': $ctrl.isCompleted() }">
+
+  <div class="quest-card__info">
+    <div class="quest-card__title">{{ $ctrl.quest.title }}</div>
+    <div class="quest-card__desc">{{ $ctrl.quest.description }}</div>
+    <div class="quest-card__meta">
+      <span class="quest-card__type">{{ $ctrl.quest.type }}</span>
+      <span class="quest-card__xp">+{{ $ctrl.quest.xp_reward }} XP</span>
+    </div>
+  </div>
+
+  <button class="btn btn--primary"
+          ng-click="$ctrl.claim()"
+          ng-disabled="$ctrl.isCompleted() || $ctrl.quest._claiming">
+    <span ng-if="$ctrl.isCompleted()">✅ Completata</span>
+    <span ng-if="!$ctrl.isCompleted() && $ctrl.quest._claiming">…</span>
+    <span ng-if="!$ctrl.isCompleted() && !$ctrl.quest._claiming">⚡ Claim</span>
+  </button>
+
+</div>

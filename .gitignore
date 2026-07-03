@@ -1,0 +1,24 @@
+# Dipendenze Node.js (sia per il backend che per il frontend)
+node_modules/
+**/node_modules/
+
+# Database locale
+# Ignoriamo il database SQLite per non sovrascrivere i dati tra sviluppatori
+backend/database.sqlite
+*.sqlite
+*.sqlite3
+
+# Build e file generati
+# Ignoriamo la cartella dist del frontend (che contiene i file compilati/minificati)
+frontend/dist/
+.sass-cache/
+*.css.map
+
+# File di configurazione e sicurezza
+# Assicurati di non pushare mai il vero .env (mentre .env.example va bene)
+.env
+.env.local
+
+# File di sistema macOS/Windows
+.DS_Store
+Thumbs.db

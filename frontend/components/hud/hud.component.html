@@ -1,0 +1,35 @@
+<div class="hud" ng-if="$ctrl.user">
+
+  <div>
+    <div class="hud__name">{{ $ctrl.user.username }}</div>
+    <div class="hud__class">{{ $ctrl.user.rpg_class }}</div>
+  </div>
+
+  <div class="hud__stats">
+
+    <div>
+      <div class="hud__level">
+        LVL {{ $ctrl.user.level }}
+        <span class="hud__max-badge" ng-if="$ctrl.isMaxLevel()">MAX</span>
+      </div>
+      <div class="hud__xp" ng-if="!$ctrl.isMaxLevel()">
+        XP: <span>{{ $ctrl.user.xp_current_level || 0 }}</span> / {{ $ctrl.XP_PER_LEVEL }}
+        <span class="hud__xp-total">(tot. {{ $ctrl.user.xp_total }})</span>
+      </div>
+      <div class="hud__xp" ng-if="$ctrl.isMaxLevel()">
+        XP Totali: <span>{{ $ctrl.user.xp_total }}</span>
+      </div>
+    </div>
+
+    <div class="xp-bar" ng-class="{ 'xp-bar--max': $ctrl.isMaxLevel() }">
+      <div class="xp-bar__fill"
+           ng-style="{ width: $ctrl.xpPercent() + '%' }">
+      </div>
+    </div>
+
+    <button class="btn btn--gold" ng-click="$ctrl.onOpenChest()">
+      🎁 Loot Chest
+    </button>
+
+  </div>
+</div>
