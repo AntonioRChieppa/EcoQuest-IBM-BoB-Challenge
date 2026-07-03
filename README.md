@@ -4,7 +4,9 @@
 
 Progetto realizzato interamente con l'agente AI **IBM BoB** per la **"Hack Your AI Agent Challenge"** organizzata da IBM per gli studenti universitari di Napoli.
 
-**Risultato Ufficiale:** Idea classificata nella Top 10 Progetti Realizzati!
+**Tempo a disposizione**: 2 ore
+
+**Risultato Ufficiale:** Idea classificata nella Top 10 Progetti Realizzati
 
 ---
 
@@ -21,7 +23,7 @@ L'impatto atteso è chiaro e misurabile. L'aspetto rivoluzionario risiede nella 
 ---
 
 ## 👥 Team IMC
-EcoQuest è stato ideata e sviluppata da:
+EcoQuest è stata ideata e sviluppata come web app da:
 * **Antonio Renato Chieppa**
 * **Enrico Ajese**
 * **Emanuele Carrino**
@@ -71,6 +73,6 @@ A questo punto, apri il file index.html nel browser o visita la porta del tuo se
 
 ---
 
-📸 Screenshots
+## 📸 Screenshots
 
 
